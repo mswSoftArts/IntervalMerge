@@ -35,3 +35,17 @@ and add following packages:
 - Microsoft.NET.Test.Sdk (latest version)
 - xunit (latest version)
 - xunit.runner.visualstudio (latest version)
+
+8. Running project is broken due introduced double entry point by new dependencies
+
+Fixed by adding to IntervalMerge.csproj:
+
+```xml
+<GenerateProgramFile>false</GenerateProgramFile>
+```
+=> our code is running again.
+
+```sh
+$ dotnet run
+```
+
