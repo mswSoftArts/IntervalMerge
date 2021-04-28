@@ -9,10 +9,10 @@ namespace IntervalMerge.Models {
       IInterval cur = (IInterval)x;
       IInterval succ = (IInterval)y;
 
-      if (cur.Lower == succ.Lower) {
-        return cur.Upper - succ.Upper;
+      if (cur.LowerValue == succ.LowerValue) {
+        return cur.UpperValue - succ.UpperValue;
       }
-      return cur.Lower - succ.Upper;
+      return cur.LowerValue - succ.UpperValue;
     }
   }
 }

@@ -1,5 +1,4 @@
 
-using System;
 using IntervalMerge.Models;
 
 namespace IntervalMerge.Services {

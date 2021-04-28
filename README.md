@@ -109,7 +109,13 @@ So we go for this approach!
 - Implementation of a Interval model class which will represent an single Interval
 - Input will be provided hard coded via array.
 - Output will be on console.
-
+- Writing unit tests first (TDD).
 
 
 ### Implementation
+
+At this stage the Interval model and comparer is already implemented. We clean up this flaw by writing tests now.
+
+- First remove unnecessary main test
+- Unit Test of IntervalComparer makes no sence, since Implementation details are in derived IComparer are private to comparer class. This will automatically be tested in IntervalService functions.
+- 
