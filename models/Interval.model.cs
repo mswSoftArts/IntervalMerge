@@ -24,6 +24,10 @@ namespace IntervalMerge.Models {
       }
     }
 
+    public override string ToString() {
+        return $"[{_lower},{_upper}]";
+    }
+
     public Interval(int lower, int upper) {
       _lower = lower;
       _upper = upper;

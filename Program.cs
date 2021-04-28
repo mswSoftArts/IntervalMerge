@@ -1,4 +1,7 @@
 ﻿using System;
+using IntervalMerge.Models;
+using IntervalMerge.Services;
+using IntervalMerge.Services.Test;
 
 namespace IntervalMerge
 {
@@ -6,7 +9,15 @@ namespace IntervalMerge
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var intervalService = new IntervalService();
+            var mergeResult = intervalService.mergeIntervals(MockData.exampleInput);
+            foreach (var value in MockData.exampleInput) {
+                Console.WriteLine($"Input interval: {value.ToString()}");
+            }
+            Console.WriteLine("========================");
+            foreach(var result in mergeResult) {
+                Console.WriteLine($"Result interval: {result.ToString()}");
+            }
         }
     }
 }

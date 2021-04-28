@@ -119,6 +119,23 @@ At this stage the Interval model and comparer is already implemented. We clean u
 - First remove unnecessary main test
 - Unit Test of IntervalComparer makes no sence, since Implementation details are in derived IComparer are private to comparer class. This will automatically be tested in IntervalService functions.
 
+You can run current tests like so:
+(replace <project root> with your current project root folder path)
+
+```sh
+$ cd <project root>
+$ dotnet test
+```
+
+
+You can run current solution like so:
+(replace <project root> with your current project root folder path)
+
+```sh
+$ cd <project root>
+$ dotnet run
+```
+
 # Conclusion
 
 Finally we reached around 06:00 CET.
