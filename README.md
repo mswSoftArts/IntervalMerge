@@ -2,7 +2,7 @@
 
 Start time: 28.04.2021, 0:05
 
-## Steps
+## Planning and implementing Project setup
 
 1. Initialized git repo, added .gitignore and README.md
 2. Switched to branch develop for active development
@@ -49,3 +49,67 @@ Fixed by adding to IntervalMerge.csproj:
 $ dotnet run
 ```
 
+9. Rebase into master branch.
+
+10. Add dummy unit test class for program (in Peperation of TDD)
+
+```cs
+// /Program.test.cs
+using Xunit;
+
+namespace IntervalMerge.Test
+{
+    public class TestProgram
+    {
+        public class UnitTest1
+        {
+            [Fact]
+            public void TestMethod1()
+            {
+                Assert.False(true);
+            }
+        }
+    }
+}
+```
+
+Test should actually fail:
+
+```sh
+$ dotnet test
+```
+
+...and it does go red how expected - all right!
+
+## Planning and Implementation of Merge Algorithm
+
+### Planning
+
+#### Toughts about implementation
+
+##### 1st approach: toughts
+
+just iterate over interval array and compare as we go if overlap was found. If overlap was found, merge with current one and remove the overlapping interval from array. This step has to be repeated for any left over interval. So this gives an squared runtime cost at minimum.
+
+- Advantage: simple to understand.
+- Disadvantage: There might be a more performat solution - this one has an estimated of O(n^2) cost.
+
+##### 2nd approach: thoughts
+
+We proceed like before, but this time we sort the intervals by lower bound values. Afterwards we traverse the array just linear during merging. Only one loop required.
+
+- Advantage: Roughly about O(n log n) runtime cost which will be mainly consumed by sorting. Actual merging has constant cost (vs squared cost in first approach).
+- Disadvantage: Increase of complexity.
+
+So we go for this approach!
+
+#### Planned Implementation details
+
+- Implementation of a IntervallService in form of a class in subfolder 'services'.
+- Implementation of a Interval model class which will represent an single Interval
+- Input will be provided hard coded via array.
+- Output will be on console.
+
+
+
+### Implementation
