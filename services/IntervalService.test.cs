@@ -25,9 +25,18 @@ namespace IntervalMerge.Services.Test
         [Fact]
         public void TestMergeIntervalsShouldReturnCorrectMergedIntervals() {
             var sut = new IntervalService();
-            var actual = sut.mergeIntervals(MockData.exampleInput);
+            var actual = sut.sortIntervals(sut.mergeIntervals(MockData.exampleInput));
             var expected = MockData.exampleExpected;
-            Assert.True(expected.Equals(actual));
+            Assert.True(checkEquality(expected, actual));
         }
+
+        [Fact]
+        public void TestMergeIntervalsLargeValues() {
+            var sut = new IntervalService();
+            var actual = sut.sortIntervals(sut.mergeIntervals(MockData.exampleInput));
+            var expected = MockData.exampleExpected;
+            Assert.True(checkEquality(expected, actual));
+        }
+
     }
 }
