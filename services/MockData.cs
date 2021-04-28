@@ -9,6 +9,13 @@ namespace IntervalMerge.Services.Test {
       new Interval(14, 23),
       new Interval(4, 8),
     };
+    public static IInterval[] exampleSortedExpected = new IInterval[] {
+      new Interval(2, 19),
+      new Interval(4, 8),
+      new Interval(14, 23),
+      new Interval(25, 30),
+    };
+
     public static IInterval[] exampleExpected = new IInterval[] {
       new Interval(2, 23),
       new Interval(25, 30),

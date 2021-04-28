@@ -9,6 +9,15 @@ namespace IntervalMerge.Services.Test
     // nyi !!!
     public class TestIntervalService
     {
+
+        [Fact]
+        public void TestSortIntervalsShouldSortByLowerBoundValue() {
+            var sut = new IntervalService();
+            var actual = sut.sortIntervals(MockData.exampleInput);
+            var expected = MockData.exampleSortedExpected;
+            Assert.True(expected.Equals(actual));
+        }
+
         [Fact]
         public void TestMergeIntervalsShouldReturnCorrectMergedIntervals() {
             var sut = new IntervalService();
