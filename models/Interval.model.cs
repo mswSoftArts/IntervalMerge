@@ -1,5 +1,6 @@
 
 using System;
+using System.Diagnostics;
 
 namespace IntervalMerge.Models {
 
@@ -8,7 +9,8 @@ namespace IntervalMerge.Models {
     int UpperValue { get; }
   }
 
-  public class Interval: IInterval {
+  [DebuggerDisplay("{DebuggerDisplay,nq}")]
+  public sealed class Interval: IInterval, IEquatable<IInterval> {
 
     private int _lower;
     public int LowerValue { get { return _lower; } }
@@ -16,18 +18,36 @@ namespace IntervalMerge.Models {
     private int _upper;
     public int UpperValue { get { return _upper; } }
 
+    private string DebuggerDisplay {
+      get {
+        return $"[{_lower},{_upper}]";
+      }
+    }
+
     public Interval(int lower, int upper) {
       _lower = lower;
       _upper = upper;
     }
 
+    public override bool Equals(object other) {
+      var _other = (IInterval)other;
+      var result =  this._lower == _other.LowerValue && this._upper == _other.UpperValue;
+      Debug.WriteLine($"Equals o: {result}");
+      return result;
+    }
+
     public bool Equals(IInterval other) {
-      return this._lower == other.LowerValue && this._upper == other.UpperValue;
+      var _other = (IInterval)other;
+      var result =  this._lower == _other.LowerValue && this._upper == _other.UpperValue;
+      Debug.WriteLine($"Equals: {result}");
+      return result;
     }
 
     public override int GetHashCode()
     {
-      return this._lower * this._upper;
+      unchecked {
+        return (this._lower * 397) ^ this._upper;
+      }
     }
   }
 

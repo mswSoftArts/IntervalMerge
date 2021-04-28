@@ -12,7 +12,7 @@ namespace IntervalMerge.Models {
       if (cur.LowerValue == succ.LowerValue) {
         return cur.UpperValue - succ.UpperValue;
       }
-      return cur.LowerValue - succ.UpperValue;
+      return cur.LowerValue - succ.LowerValue;
     }
   }
 }
